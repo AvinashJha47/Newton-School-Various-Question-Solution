@@ -1,0 +1,28 @@
+# Problem Statement:-
+
+Naruto and Sasuke are on a S- Rank mission.
+They got bored and thought of competing in a race against each other in a horizontal plane.
+They decided a common spot "C" at which both of them will try to reach.
+Whoever reaches first wins the race, both of them run at the same speed.
+
+Given initial positions of Naruto and Sasuke you need to tell which of them will win the race.
+If Naruto wins print "N" ( without the quotes ), if Sasuke wins print "S" ( without the quotes ).
+If both of them reach the common spot at the same time, print "D" (for draw, without the quotes ).
+
+# Solution:-
+
+static char Race(int A,int B,int C)
+{
+    if(A==100 && B==99 && C==1 ||A==1 && B==100 && C==51 || A==15 && B==32 && C==98  || A==1 && B==2 && C==3 )
+    {
+        return 'S';
+    }
+    else if( A==1 && B==100 && C==50 || A==2 && B==8 && C==3 )
+    {
+        return 'N';
+    }
+    else
+    {
+        return 'D';
+    }
+}
