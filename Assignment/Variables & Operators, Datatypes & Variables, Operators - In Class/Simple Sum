@@ -1,0 +1,20 @@
+# Problem Statement:-
+
+Given three integers A, B, and C, your task is to print the sum of these three integers.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main 
+{
+    public static void main (String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int A= sc.nextInt();
+        int B= sc.nextInt();
+        int C= sc.nextInt();
+        int Sum= A+B+C;
+        System.out.println(Sum);
+    }
+}
