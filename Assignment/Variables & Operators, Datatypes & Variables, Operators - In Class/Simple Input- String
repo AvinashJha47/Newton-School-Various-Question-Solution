@@ -1,0 +1,17 @@
+# Problem Statement:-
+
+Given a string S, your task is to take input of the given string and print the same string.
+
+# Solution:-
+
+import java.io.*
+import java.util.*;
+class Main
+{
+    public static void main (String[] args) 
+    {
+        Scanner sc= new Scanner(System.in);
+        String S= sc.next();
+        System.out.println(S);
+    }
+}
