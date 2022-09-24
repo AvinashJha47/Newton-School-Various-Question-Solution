@@ -1,0 +1,17 @@
+# Problem Statement:-
+
+Given an integer N, your task is to take input of the given integer and print it.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args) 
+    {
+        Scanner sc= new Scanner(System.in);
+        int N= sc.nextInt();
+        System.out.println(N);
+    }
+}
