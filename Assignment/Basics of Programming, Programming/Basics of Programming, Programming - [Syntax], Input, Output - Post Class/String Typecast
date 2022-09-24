@@ -1,1 +1,11 @@
-615463516
+Problem Statement
+Given an integer N, you need to typecast this integer to String.
+If the typecasting is done successfully then we will print "Nice Job" otherwise "Wrong answer".
+
+static String checkConevrtion(int N)
+{
+  {
+    String S=String.valueOf(N);
+    return S;
+  }
+}
