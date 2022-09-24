@@ -1,0 +1,50 @@
+# Problem Statement:-
+
+Given marks of a student in 5 subjects(any).
+You need to find the grade he/she would get on the basis of percentage obtained.
+Grades computed are as follows:
+
+If the percentage of marks is >= 80 then print Grade ‘A’
+If the percentage is <80 and >=60 then print Grade ‘B’
+If the percentage is <60 and >=40 then print Grade ‘C’
+else prints Grade ‘D’.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int x= sc.nextInt();
+        int y= sc.nextInt();
+        int z= sc.nextInt();
+        int p= sc.nextInt();
+        int q= sc.nextInt();
+        int M= x+y+z+p+q;
+        int P= (M*100)/500;
+        
+        if(P<=100 && P>=80)
+        {
+            System.out.print("A");
+        }
+        else if(P<=80 && P>=60)
+        {
+            System.out.print("B");
+        }
+        else if(P<=60 && P>=40)
+        {
+            System.out.print("C");
+        }
+        else if(P<=40 && P>=0)
+        {
+            System.out.print("D");
+        }
+        else
+        {
+            System.out.print("E");
+        }
+    }
+}
