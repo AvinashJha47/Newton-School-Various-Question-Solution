@@ -1,0 +1,32 @@
+# Problem Statement:- 
+
+Rick's family and Jerry are playing Tic Tac Toe. Rules are simple:
+Game is played in pairs.
+If Rick plays against anyone, Rick wins.
+If Jerry plays against anyone, Jerry Loses.
+A game between any other players is a draw.
+Given a pair of players, find who wins the game or if the game is draw.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        String P1= sc.next();
+        String P2= sc.next();
+        String Result;
+        if(P1.equals("R") || P2.equals("R"))
+             Result= "R";
+        else if(P1.equals("J"))
+            Result= P2;
+        else if(P2.equals("J"))
+            Result= P1;
+        else
+            Result= "D";
+        System.out.println(Result);
+    }
+}
