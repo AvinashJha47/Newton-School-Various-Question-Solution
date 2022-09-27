@@ -1,0 +1,32 @@
+# Problem Statement:-
+
+Given an integer array A of N integers, find the pair of integers in the array which have minimum XOR value.
+Report the minimum XOR value.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int n= sc.nextInt();
+        int a[]= new int[n];
+        for(int i=0; i<n; i++)
+        {
+            a[i]= sc.nextInt();
+        }
+        Arrays.sort(a);
+        int Minimize_XOR= Integer.MAX_VALUE;
+        int Value= 0;
+
+        for(int i=0; i<n-1; i++)
+        {
+            Value= a[i]^a[i+1];
+            Minimize_XOR= Math.min(Minimize_XOR, Value);
+        }
+        System.out.println(Minimize_XOR);
+    }
+}
