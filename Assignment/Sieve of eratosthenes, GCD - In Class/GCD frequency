@@ -1,0 +1,36 @@
+# Problem Statement:-
+
+Given an integer array A of size N. Find the sum of GCD (Greatest Common Divisor) of all elements with their frequency.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc=  new Scanner(System.in);
+        int n= sc.nextInt();
+        int a[]= new int[n];
+        HashMap<Integer, Integer> Map= new HashMap<>();
+        for(int i=0; i<n; i++)
+        {
+            a[i]= sc.nextInt();
+            Map.put(a[i], Map.getOrDefault(a[i],0) + 1);
+        }
+        long sum= 0;
+        for(int i=0; i<n; i++)
+        {
+            sum+= gcd(a[i], Map.get(a[i]));
+        }
+        System.out.println(sum);
+    }
+
+    static int gcd(int a, int b)
+    {
+        if(b==0)
+        return a;
+        return gcd(b,a%b);
+    }
+}
