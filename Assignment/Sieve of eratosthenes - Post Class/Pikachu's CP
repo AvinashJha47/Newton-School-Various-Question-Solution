@@ -1,0 +1,69 @@
+# Problem Statement:-
+You have entered the animated world of Pokémon and fortunately you have started your career as a Pokémon Trainer.
+Your first Pokémon is a Pikachu which is a cherry on top of the cake.
+Now it is your responsibility to increase your Pikachu's CP (Combat Power) using Power Bics.
+Consider that initially Cinitial is your Pikachu's CP and you can help him increase its CP to a maximum value, Cfinal.
+In order to increase your Pokémon's CP in an efficient way you must make sure that after every increase in CP your Pokémon's CP value has exactly F unique prime factors.
+What is the maximum number of steps in which you can increase the CP of your Pokémon to the maximum possible (with F prime factors), 
+considering every increase in CP as a step. 
+If it is not possible to increase your Pikachu's CP then print -1.
+
+# Solution:-
+
+#include <bits/stdc++.h>
+#define mx 1000005
+
+using namespace std;
+
+typedef long long int ll;
+int n,a,b,e;
+vector<int>V[20];
+
+void PrimeFactor()
+{
+    V[0].push_back(1);
+    for (int i=2;i<=mx;i++)
+    {
+        int c=0;
+        int n=i;
+        if (n%2==0)
+        {
+            c++;
+            while (n%2==0)
+                n/=2;
+        }
+        for (int j=3;j<=sqrt(n);j+=2)
+        {
+            if (n%j==0)
+            {
+                c++;
+                while (n%j==0)
+                    n/=j;
+            }
+        }
+        if (n>1)
+            c++;
+       V[c].push_back(i);
+    }
+}
+int main()
+{
+    PrimeFactor();
+//    for (int i=0;i<=10;i++){
+//        cout << "\t" << i << endl;
+//        for (int j=0;j<V[i].size();j++)
+//            cout << V[i][j] << " ";
+//        cout << endl;}
+    int T;
+    cin >> T;
+    while (T--)
+    {
+        cin >> a >> b >> n;
+        int L=upper_bound(V[n].begin(),V[n].end(),a)-V[n].begin();
+        int U=upper_bound(V[n].begin(),V[n].end(),b)-V[n].begin();
+        if (U-L==0)
+            cout << -1 << endl;
+        else
+            cout << U-L << endl;
+    }
+}
