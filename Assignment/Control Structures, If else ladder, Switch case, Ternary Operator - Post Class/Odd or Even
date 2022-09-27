@@ -1,0 +1,26 @@
+# Problem Statement:-
+
+Write a program to check whether a number is even or odd using switch case.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int i= sc.nextInt();
+        String Number;
+        if(i%2==0)
+        {
+            Number= "Even";
+        }
+        else
+        {
+            Number= "Odd";
+        }
+        System.out.print(Number);
+    }
+}
