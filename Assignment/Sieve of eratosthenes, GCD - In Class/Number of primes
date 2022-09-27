@@ -1,0 +1,41 @@
+# Problem Statement:-
+
+Given a number n find the number of prime numbers less than equal to that number.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main 
+{
+    public static void main (String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        int n= sc.nextInt();
+        int count= 0;
+        boolean ans;
+        for(int i=1; i<=n; i++)
+        {
+            ans= (check(i));
+            if(ans)
+            {
+                count++;
+            }
+        }
+        System.out.print(count);
+    }
+
+    static boolean check(int n)
+    {
+        if(n==0 || n==1)
+        {
+            return false;
+        }
+        for(int i=2; i*i<=n; i++)
+        {
+            if(n%i==0)
+            return false;
+        }
+        return true;
+    }
+}
