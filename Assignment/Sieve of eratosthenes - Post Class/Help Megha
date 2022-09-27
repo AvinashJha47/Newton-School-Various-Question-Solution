@@ -1,0 +1,48 @@
+# Problem Statement:-
+In School Megha was given a homework to find the number of prime numbers before N (Including that number too), 
+since Megha is weak in Maths she needs your help to do her homework.
+
+# Solution:-
+
+import java.io.*;
+import java.util.*;
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc=new Scanner(System.in);
+        boolean prime[] = new boolean[100005];
+        
+        for(int i=0;i<100005;i++)
+        prime[i]=true;
+        prime[0] = prime[1] = false;
+        
+        for (int i = 2; i * i < 100005; i++)
+        {
+            if (prime[i])
+            {
+                for (int j = i * i; j < 100005; j += i)
+                prime[j] = false;
+            }
+        }
+        int prefix[]=new int[100005];
+        prefix[0]=0;
+        for (int i = 1; i < 100005; i++)
+        {
+            prefix[i] = 0;
+            if (prime[i])
+            {
+                prefix[i] = prefix[i - 1] + 1;
+            }
+            else
+            {
+                prefix[i] = prefix[i - 1];
+            }
+        }
+        int test=sc.nextInt();
+        for(int i=0;i<test;i++){
+        int c=sc.nextInt();
+        System.out.println(prefix[c]);
+        }
+    }
+}
