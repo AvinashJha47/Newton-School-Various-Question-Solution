@@ -1,0 +1,16 @@
+Problem Statement
+Print the number of values in the array that are NOT zeros for a n*m dimensional array
+Input
+1st line : space separated values for n and m
+Next n lines: m space separated values
+Output
+Number of nonzero values in the array
+Example
+Input:
+3 3
+0 0 0
+0 0 1
+1 0 2
+
+Output:
+3
