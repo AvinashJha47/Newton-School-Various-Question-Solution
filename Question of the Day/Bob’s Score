@@ -1,0 +1,39 @@
+Problem Statement
+Bob has two boxes, yellow and green, and N card packs. Initially, both boxes are empty. Each card pack contains two cards with integers written on them. We know that the i- th card pack contains a card with xi​ and another with yi​.
+For each card pack, Bob will put one of its cards in the yellow box, and the other in the green box.
+After Bob put all cards in the boxes,
+Calculate the score:
+a) Let A = GCD(all integers in the yellow box).
+b) Let B = GCD(all integers in the green box).
+Bob score will be the least common multiple of A and B.
+Find the maximum possible score Bob can achieve.
+Input
+The first line contains and integer N
+The ith of the next N line contains 2 integers, xi and yi.
+
+Constraints:
+All values in input are integers.
+1≤N≤50
+1≤xi​, yi​≤10^9.
+Output
+Print the maximum possible score.
+Example
+Sample Input 1:
+2
+2 15
+10 6
+
+Sample Output 1:
+10
+
+
+Sample Input 2:
+5
+148834018 644854700
+947642099 255192490
+35137537 134714230
+944287156 528403260
+68656286 200621680
+
+Sample Output 2:
+238630
