@@ -1,0 +1,115 @@
+# Problem Statement:-
+Saurabh has a paper of size N*M and some horizontal and vertical lines in the form of arrays.
+Saurabh wants to know the maximum area which is trapped inside the lines.
+
+Note:- Consider the boundary of the paper to be vertical and horizontal lines. Also consider 0 indexing.
+
+# Input:-
+The first line of input contains 4 space separated integers depicting N, M, size of array contains horizontal lines(H), size of array containing vertical lines(V).
+The second line contains H space separated integers depicting horizontal lines. Last lines contains V space separated integers depicting vertical lines.
+
+# Constraints:-
+1 <= N, M <= 1000000000
+1 <= H, V <= 100000
+0 <= horizontal lines <= N
+0 <= vertical lines <= M
+
+# Output:-
+Print the maximum area trapped between the lines.
+
+# Example:-
+Sample Input:-
+5 4 3 2
+1 2 4
+1 3
+
+Sample Output:-
+4
+
+Explanation:-
+The area is- (2,1), (2,3) (4,1) (4,3)
+
+Sample Input:-
+5 4 2 1
+3 1
+1
+
+Sample Output:-
+6
+
+
+
+# Solution:-
+
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    // static void larea(int N, int M, int[] H, int[] V){
+    //     HashSet<Integer> a = new HashSet<>();
+    //     HashSet<Integer> b = new HashSet<>();
+    //     for (int i =1;i<=N+1;i++)
+    //     a.add(i);
+    //     for(int i =1; i<=M+1;i++)
+    //     b.add(i);
+    //     for(int i=0; i<H.length;i++){
+    //     a.remove(H[i]);
+    //     }
+    //     for(int i=0; i<V.length;i++){
+    //     b.remove(V[i]);
+    //     }
+    //     int[] l1 = new int[a.size()];
+    //     int[] l2 = new int[b.size()];
+    //     int i = 0;
+    //     Iterator it1 = a.iterator();
+    //     while (it1.hasNext()){
+    //         l1[i++] = (int)it1.next();
+    //     }
+    //     i=0;
+    //     Iterator it2 = b.iterator();
+    //     while (it2.hasNext()){
+    //         l2[i++] = (int)it2.next();
+    //     }
+    //     Arrays.sort(l1);
+    //     Arrays.sort(l2);
+    //     int maxH = 0, p1 =0, maxV =0, p2 =0;
+    //     for (int j =0; j<l1.length;j++){
+    //         maxH = Math.max(maxH, l1[j] -p1);
+    //         p1= l1[j];
+    //     }
+    //     for(int j=0; j<l2.length;j++){
+    //         maxV = Math.max(maxV, l2[j]-p2);
+    //         p2 = l2[j];
+    //     }
+    //     System.out.println(maxV*maxH);
+    // }
+    public static int maxarea(int n, int m, int h[], int v[]){
+        Arrays.sort(h);
+        Arrays.sort(v);
+        int maxh = Math.max(h[0],n-h[h.length-1]);
+        int maxv = Math.max(v[0],m-v[v.length-1]);
+        for(int i =0; i<h.length-1;i++)
+        maxh = Math.max(maxh,h[i+1]-h[i]);
+        for(int i =0; i<v.length-1;i++)
+        maxv = Math.max(maxv,v[i+1]-v[i]);
+        return (int)((long)maxh*maxv % 1000000007);
+
+    }
+    public static void main (String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int N = scn.nextInt();
+        int M = scn.nextInt();
+        int H = scn.nextInt();
+        int V = scn.nextInt();
+        int h[] = new int[H];
+        for (int i =0; i<h.length;i++)
+        h[i] = scn.nextInt();
+        int v[] = new int[V];
+        for (int j =0; j<v.length;j++)
+        v[j] = scn.nextInt();
+        System.out.println(maxarea(N,M,h,v));
+        
+    }
+}
