@@ -1,0 +1,76 @@
+# Problem Statement:-
+Given a string S, containing only letters { 'N', 'E', 'W', 'T', 'O'} like "NWTEONEW" or "NEWTON".
+Your task is to print all the substring of size 10 which occur more than once in the given string.
+
+# Input:-
+Input contains a single line containing the string S.
+
+# Constraints:-
+10 < = |String| < = 10000
+
+# Output:-
+Print all the sequences in lexicographical order separated by spaces, if their is no such substring exist print -1.
+
+# Example
+Sample Input:-
+NEWTONNEWTONNEWTON
+
+Sample Output:-
+EWTONNEWTO NEWTONNEWT WTONNEWTON
+
+Sample Input:-
+NETOWNEWOTTONTOONW
+
+Sample Output:-
+-1
+
+
+
+
+# Solution:-
+import java.io.*;
+import java.util.*;
+
+class Main
+{
+    public static void main (String[] args)
+    {
+        Scanner sc=new Scanner (System.in);
+        String s=sc.nextLine();
+        int n = s.length();
+        TreeMap<String, Integer> hm = new TreeMap<>(); //nlogn //O(n) //{abc:2, bca:1, cab:1}
+        int k = 10; //abcabcabc
+        int st = 0;
+        
+        for(int i=k;i<=n;i++)
+        {
+            String curr = s.substring(st, i); //abc
+            if(hm.containsKey(curr))
+            {
+                int freq = hm.get(curr);//1
+                hm.put(curr, freq+1);
+            }
+            else
+            {
+                hm.put(curr, 1);
+            }
+            st++;
+        }
+        
+        boolean isPresent = false;
+        for(String word:hm.keySet())
+        {
+            int occur = hm.get(word);
+            if(occur>1)
+            {
+                isPresent = true;
+                System.out.print(word+" ");
+            }
+        }
+        if(isPresent==false)
+        {
+            System.out.print(-1);
+        }
+    }
+}
+
